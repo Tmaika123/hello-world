@@ -1,0 +1,49 @@
+# Physics 2 Quiz Script with Answers at the End
+
+questions = [
+    {
+        "question": "1. What is the direction of electric field lines around a positive point charge?",
+        "options": ["(a) Inward", "(b) Outward", "(c) Circular", "(d) Random"],
+        "answer": "b"
+    },
+    {
+        "question": "2. The unit of electric potential is:",
+        "options": ["(a) Ampere", "(b) Ohm", "(c) Volt", "(d) Watt"],
+        "answer": "c"
+    },
+    {
+        "question": "3. Sound cannot travel through:",
+        "options": ["(a) Solids", "(b) Liquids", "(c) Gases", "(d) Vacuum"],
+        "answer": "d"
+    },
+    {
+        "question": "4. The energy of a photon is given by:",
+        "options": ["(a) E = mc", "(b) E = hf", "(c) E = qV", "(d) E = mv^2"],
+        "answer": "b"
+    },
+    {
+        "question": "5. Which color of visible light has the highest frequency?",
+        "options": ["(a) Red", "(b) Blue", "(c) Green", "(d) Violet"],
+        "answer": "d"
+    }
+]
+
+def run_quiz():
+    score = 0
+    for q in questions:
+        print(q["question"])
+        for opt in q["options"]:
+            print(opt)
+        user_answer = input("Your answer (a/b/c/d): ").strip().lower()
+        if user_answer == q["answer"]:
+            print("Correct!\n")
+            score += 1
+        else:
+            print("Incorrect.\n")
+    print(f"You got {score}/{len(questions)} correct.\n")
+    print("\nAnswer Key:")
+    for q in questions:
+        print(f"{q['question']} Answer: {q['answer']}")
+
+if __name__ == "__main__":
+    run_quiz()
