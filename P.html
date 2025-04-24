@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics 2 Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+    h1 { text-align: center; }
+    .question { margin-bottom: 20px; }
+    .options label { display: block; margin-bottom: 5px; cursor: pointer; }
+    .results { margin-top: 30px; font-weight: bold; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Physics 2 Quiz</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. Which of the following best describes electromagnetic waves?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> (a) Longitudinal</label>
+        <label><input type="radio" name="q1" value="b"> (b) Transverse</label>
+        <label><input type="radio" name="q1" value="c"> (c) Mechanical</label>
+        <label><input type="radio" name="q1" value="d"> (d) Static</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. What phenomenon explains why the sky is blue?</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> (a) Diffraction</label>
+        <label><input type="radio" name="q2" value="b"> (b) Refraction</label>
+        <label><input type="radio" name="q2" value="c"> (c) Rayleigh scattering</label>
+        <label><input type="radio" name="q2" value="d"> (d) Interference</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>3. What does Kirchhoff's loop rule state?</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> (a) Current is conserved at junctions</label>
+        <label><input type="radio" name="q3" value="b"> (b) Total voltage around a loop is zero</label>
+        <label><input type="radio" name="q3" value="c"> (c) Magnetic fields cancel in a loop</label>
+        <label><input type="radio" name="q3" value="d"> (d) Charges add in series</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. Which quantum principle limits how precisely we can know both position and momentum?</p>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a"> (a) Uncertainty principle</label>
+        <label><input type="radio" name="q4" value="b"> (b) Exclusion principle</label>
+        <label><input type="radio" name="q4" value="c"> (c) Tunneling principle</label>
+        <label><input type="radio" name="q4" value="d"> (d) Duality principle</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>5. In a double-slit experiment, increasing wavelength will:</p>
+      <div class="options">
+        <label><input type="radio" name="q5" value="a"> (a) Decrease fringe spacing</label>
+        <label><input type="radio" name="q5" value="b"> (b) Increase fringe spacing</label>
+        <label><input type="radio" name="q5" value="c"> (c) Eliminate interference</label>
+        <label><input type="radio" name="q5" value="d"> (d) Increase brightness</label>
+      </div>
+    </div>
+    <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+  </form>
+  <div class="results" id="results"></div>
+
+  <script>
+    const answers = {
+      q1: 'b',
+      q2: 'c',
+      q3: 'b',
+      q4: 'a',
+      q5: 'b'
+    };
+
+    function gradeQuiz() {
+      let score = 0;
+      const total = Object.keys(answers).length;
+      for (let key in answers) {
+        const userAnswer = document.querySelector(`input[name="${key}"]:checked`);
+        if (userAnswer && userAnswer.value === answers[key]) {
+          score++;
+        }
+      }
+      document.getElementById("results").textContent = `You scored ${score} out of ${total}.`;
+    }
+  </script>
+</body>
+</html>
