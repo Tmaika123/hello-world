@@ -1,0 +1,49 @@
+# Physics 2 Quiz - Version 2
+
+quiz = [
+    {
+        "question": "1. Which of the following best describes electromagnetic waves?",
+        "options": ["(a) Longitudinal", "(b) Transverse", "(c) Mechanical", "(d) Static"],
+        "answer": "b"
+    },
+    {
+        "question": "2. What phenomenon explains why the sky is blue?",
+        "options": ["(a) Diffraction", "(b) Refraction", "(c) Rayleigh scattering", "(d) Interference"],
+        "answer": "c"
+    },
+    {
+        "question": "3. What does Kirchhoff's loop rule state?",
+        "options": ["(a) Current is conserved at junctions", "(b) Total voltage around a loop is zero", "(c) Magnetic fields cancel in a loop", "(d) Charges add in series"],
+        "answer": "b"
+    },
+    {
+        "question": "4. Which quantum principle limits how precisely we can know both position and momentum?",
+        "options": ["(a) Uncertainty principle", "(b) Exclusion principle", "(c) Tunneling principle", "(d) Duality principle"],
+        "answer": "a"
+    },
+    {
+        "question": "5. In a double-slit experiment, increasing wavelength will:",
+        "options": ["(a) Decrease fringe spacing", "(b) Increase fringe spacing", "(c) Eliminate interference", "(d) Increase brightness"],
+        "answer": "b"
+    }
+]
+
+def run_quiz():
+    correct = 0
+    for q in quiz:
+        print(q['question'])
+        for opt in q['options']:
+            print(opt)
+        answer = input("Your answer (a/b/c/d): ").strip().lower()
+        if answer == q['answer']:
+            print("Correct!\n")
+            correct += 1
+        else:
+            print("Incorrect.\n")
+    print(f"Final Score: {correct}/{len(quiz)}\n")
+    print("Answer Key:")
+    for q in quiz:
+        print(f"{q['question']} Answer: {q['answer']}")
+
+if __name__ == '__main__':
+    run_quiz()
